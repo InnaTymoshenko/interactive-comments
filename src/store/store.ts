@@ -3,7 +3,6 @@ import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 import { Comment, Reply, Data } from '../types/type'
 import { initialData } from '../data'
-import { timeAgo } from '../utils/method'
 
 interface CommentState {
 	data: Data
@@ -24,7 +23,7 @@ const useCommentStore = create<CommentState>()(
 						const newComment: Comment = {
 							id: Date.now(),
 							content,
-							createdAt: timeAgo(new Date().toISOString()),
+							createdAt: new Date().toISOString(),
 							score: 0,
 							user: state.data.currentUser,
 							replies: []
@@ -36,7 +35,7 @@ const useCommentStore = create<CommentState>()(
 						const newReply: Reply = {
 							id: Date.now(),
 							content,
-							createdAt: timeAgo(new Date().toISOString()),
+							createdAt: new Date().toISOString(),
 							score: 0,
 							replyingTo,
 							user: state.data.currentUser,

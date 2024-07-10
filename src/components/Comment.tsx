@@ -9,6 +9,7 @@ import { IReply } from './icons/IReply'
 import { UserReply } from './UserReply'
 import { DeleteComment } from './DeleteComment'
 import { EditComment } from './EditComment'
+import { timeAgo } from '../utils/method'
 
 interface Props {
 	comment: CommentType
@@ -67,7 +68,7 @@ const Comment: React.FC<Props> = ({
 						comment.user.username === currentUser.username ? 'col-start-6' : 'col-start-5'
 					}`}
 				>
-					{comment.createdAt}
+					{timeAgo(comment.createdAt)}
 				</span>
 				<div
 					className={`w-[100%] sx:col-start-1 lg:col-start-2 sx:col-span-7 lg:col-span-10 row-start-2 ${

@@ -2,7 +2,7 @@
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 import { Comment, Reply, Data } from '../types/type'
-import initialData from '../data.json'
+import { initialData } from '../data'
 import { timeAgo } from '../utils/method'
 
 interface CommentState {

@@ -35,7 +35,9 @@ React + TypeScript + Vite
 - Flexbox
 - CSS Grid
 - [React](https://reactjs.org/) - JS library
+- tailwindCSS
 - TypeScript
+- zustand
 - Vite
 
 ## Author

@@ -13,7 +13,13 @@ interface CommentState {
 	changeScore: (id: number, change: number) => void
 }
 
-const useCommentStore = create<CommentState>()(
+interface DeleteModaleState {
+	modal: boolean
+	setModal: (id: number) => void
+	id: number
+}
+
+export const useCommentStore = create<CommentState>()(
 	devtools(
 		persist(
 			set => ({
@@ -174,4 +180,19 @@ const useCommentStore = create<CommentState>()(
 	)
 )
 
-export default useCommentStore
+export const useDeleteModal = create<DeleteModaleState>()(
+	devtools(
+		persist(
+			(set, get) => ({
+				modal: false,
+				id: 0,
+				setModal: id =>
+					set({
+						modal: !get().modal,
+						id: id
+					})
+			}),
+			{ name: 'delete-id' }
+		)
+	)
+)

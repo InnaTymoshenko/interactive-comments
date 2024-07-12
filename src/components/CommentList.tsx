@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Comment from './Comment'
 import { UserReply } from './UserReply'
-import useCommentStore from '../store/store'
+import { useCommentStore } from '../store/store'
 
 const CommentList: React.FC = () => {
 	const { data, addComment, addReply, deleteComment, editComment, changeScore } = useCommentStore()

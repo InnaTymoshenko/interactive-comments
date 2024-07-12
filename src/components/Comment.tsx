@@ -7,9 +7,9 @@ import { Delete } from './icons/Delete'
 import { Edit } from './icons/Edit'
 import { IReply } from './icons/IReply'
 import { UserReply } from './UserReply'
-import { DeleteComment } from './DeleteComment'
 import { EditComment } from './EditComment'
 import { timeAgo } from '../utils/method'
+import { useDeleteModal } from '../store/store'
 
 interface Props {
 	comment: CommentType
@@ -29,10 +29,10 @@ const Comment: React.FC<Props> = ({
 	handleScoreChange
 }) => {
 	const [replyContent, setReplyContent] = useState('')
-	const [modal, setModal] = useState(false)
 	const [showReply, setShowReply] = useState(false)
 	const [isEditing, setIsEditing] = useState(false)
 	const [editedContent, setEditedContent] = useState(comment.content)
+	const { setModal } = useDeleteModal()
 
 	const addReply = () => {
 		if (replyContent.trim()) {
@@ -99,7 +99,7 @@ const Comment: React.FC<Props> = ({
 				{!isEditing && comment.user.username === currentUser.username && (
 					<>
 						<Button
-							onClick={() => setModal(!modal)}
+							onClick={() => setModal(comment.id)}
 							className="button text-red-100  text-lg font-bold sx:col-start-4 lg:col-start-9 sx:col-span-2 sx:row-start-4 lg:row-start-1"
 						>
 							<Delete /> Delete
@@ -125,14 +125,6 @@ const Comment: React.FC<Props> = ({
 			{showReply && (
 				<UserReply user={currentUser} newComment={replyContent} setNewComment={setReplyContent} addComment={addReply} />
 			)}
-			{modal ? (
-				<DeleteComment
-					id={comment.id}
-					modal={modal}
-					setModal={setModal}
-					handleDelete={() => handleDelete(comment.id, true)}
-				/>
-			) : null}
 			{comment.replies?.length ? (
 				<div
 					className={`w-full flex flex-col  lg:ml-10 lg:pl-10 sx:pl-4 border-l-4 border-l-gray-200 gap-8  ${

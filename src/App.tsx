@@ -16,7 +16,6 @@ const App: React.FC = () => {
 	return (
 		<div className="w-full min-h-screen relative">
 			{modal && <DeleteComment id={0} setModal={setModal} handleDelete={handledeleteComment} />}
-
 			<Shell className="container w-screen max-w-[800px] my-16 ">
 				<CommentList />
 			</Shell>

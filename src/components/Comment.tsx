@@ -68,7 +68,7 @@ const Comment: React.FC<Props> = ({
 						comment.user.username === currentUser.username ? 'col-start-6' : 'col-start-5'
 					}`}
 				>
-					{timeAgo(comment.createdAt)}
+					{comment.createdAt.includes('-') ? timeAgo(comment.createdAt) : comment.createdAt}
 				</span>
 				<div
 					className={`w-[100%] sx:col-start-1 lg:col-start-2 sx:col-span-7 lg:col-span-10 row-start-2 ${

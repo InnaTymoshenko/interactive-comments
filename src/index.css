@@ -8,6 +8,8 @@
 	font-weight: 500;
 	color: hsl(211, 10%, 45%);
 	background-color: hsl(228, 33%, 97%);
+	margin: 0;
+	padding: 0;
 }
 
 @layer base {

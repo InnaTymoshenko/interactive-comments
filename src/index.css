@@ -27,10 +27,10 @@
 }
 @layer components {
 	.container {
-		@apply px-8 w-full max-w-[1440px] mx-auto;
+		@apply lg:px-8 sx:px-2 w-full max-w-[1440px] mx-auto;
 	}
 
 	.comment {
-		@apply w-full bg-white lg:p-8 sx:p-4 grid sx:grid-cols-7 lg:grid-cols-11 sx:grid-rows-4 lg:grid-rows-3 items-center justify-items-center sx:gap-4  rounded-lg;
+		@apply w-full bg-white lg:p-8 sx:p-2 grid sx:grid-cols-7 lg:grid-cols-11 sx:grid-rows-4 lg:grid-rows-3 items-center justify-items-center sx:gap-4  rounded-lg;
 	}
 }

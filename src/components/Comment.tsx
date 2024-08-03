@@ -55,7 +55,7 @@ const Comment: React.FC<Props> = ({
 					alt={comment.user.username}
 					className="col-span-1 sx:col-start-1 lg:col-start-2 lg:w-[80%]"
 				/>
-				<span className="text-xl text-blue-400 font-bold col-span-2 sx:col-start-2 lg:col-start-3  ">
+				<span className="lg:text-xl sx:text-lg text-blue-400 font-bold col-span-2 sx:col-start-2 lg:col-start-3  ">
 					{comment.user.username}
 				</span>
 				{comment.user.username === currentUser.username && (
@@ -85,7 +85,7 @@ const Comment: React.FC<Props> = ({
 					)}
 				</div>
 				{!isEditing && (
-					<div className="w-[100%] h-full flex sx:flex-row lg:flex-col  bg-gray-200 justify-between items-center p-2 rounded-lg sx:row-start-4 lg:row-start-1 lg:row-span-2 col-start-1 lg:col-span-1 sx:col-span-2">
+					<div className="w-[100%] h-full flex sx:flex-row lg:flex-col  bg-gray-200 justify-between items-center p-2 rounded-lg sx:row-start-4 lg:row-start-1 lg:row-span-2 col-start-1 lg:col-span-1 sx:col-span-3">
 						<Button onClick={() => handleScoreChange(comment.id, 1)} className="p-2">
 							<Plus />
 						</Button>
